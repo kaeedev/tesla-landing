@@ -11,7 +11,7 @@ El objetivo de este proyecto es aplicar todo lo aprendido en HTML, CSS, JS, Astr
 ## 👁️ Vista previa del proyecto
 <img src="src/assets/preview.jpg" width=1200>
 <img src="src/assets/preview2.jpg" width=1200>
-<img src="src/assets/previewmobile.jpg" width=1200>
+<img src="src/assets/previewmobile.jpg" width=500>
 
 
 ## 🛠️ Estructura del Proyecto

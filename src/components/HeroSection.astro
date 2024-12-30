@@ -1,0 +1,50 @@
+<section class="landing-section bg-black h-screen w-screen text-center relative overflow-hidden" data-header-color="white">
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <div id="model-hero-info">
+                <h2 class=" model-info text-white pt-40 text-4xl font-medium mb-4">Disfrute de tesla</h2>
+                <p class="text-white text-sm">Programe una prueba de conducción hoy mismo</p>
+            </div>
+        </header>
+        <footer class="flex flex-grow flex-nowrap justify-end flex-col pb-20">
+            <div>
+                <a class="text-white border-[3px] border-white text-sm rounded font-medium px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors backdrop-blur-xl" 
+                href="#">Prueba de conduccion</a>
+            </div>
+            
+        </footer>
+    </div>
+    
+
+    <div class="absolute top-0 bottom-0 h-full w-full z-10">
+        <video autoplay muted loop class="hidden sm:flex object-center object-cover h-full w-full" src="/video.webm"></video>
+        <video autoplay muted loop class="object-center object-cover h-full w-full" src="/videomobile.webm"></video>
+    </div>
+</section>
+
+<script>
+    //Animacion para los titulos
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector("#model-hero-info");
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        
+        section.classList.remove("opacity-0"); 
+        section.classList.add("animate-fade-in-up");
+      } else {
+        section.classList.remove("animate-fade-in-up");
+        section.classList.add("opacity-0");
+      }
+    },
+    {
+      threshold: 0.1, 
+    }
+  );
+
+  observer.observe(section);
+});
+
+  
+</script>

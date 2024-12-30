@@ -1,0 +1,141 @@
+---
+import Logo from "./Logo.astro"
+---
+<header class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white" id="landing-header">
+    <div class="flex flex-grow basis-0">
+        <Logo />
+    </div>
+
+    <nav>
+        <ul class=" hidden xl:flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
+            <li><a href="#">Model S</a></li>
+            <li><a href="#">Model 3</a></li>
+            <li><a href="#">Model X</a></li>
+            <li><a href="#">Model Y</a></li>
+            <li><a href="#">Powerwall</a></li>
+            <li><a href="#">Carga</a></li>
+        </ul>
+    </nav>
+
+    <nav class="hidden xl:flex flex-grow justify-end basis-0">
+        <ul class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
+            <li><a href="#">Soporte</a></li>
+            <li><a href="#">Tienda</a></li>
+            <li><a href="#">Cuenta</a></li>
+        </ul>
+    </nav>
+
+    <div id="menu-backdrop" class="absolute bg-black/5 backdrop-blur-lg rounded left-[var(--left)] top-[var(--top)] w-[var(--width)] h-[var(--height)]
+    transition-all duration-500 delay-50 ease-in-out opacity-0 -z-10">
+
+    </div>
+
+    <button class="xl:hidden block text-current transition-colors duration-500 font-bold backdrop-blur-md p-2 hover:bg-white hover:text-black rounded ease-in-out" id="mobile-menu-button">
+        <p class="landing-section text-sm">Menú</p>
+      </button>
+</header>
+
+<dialog id="mobile-menu-dialog" class="fixed inset-0 w-full bg-white text-black xl:hidden space-y-0 rounded animate-fade-in  ">
+    <div class="flex flex-col justify-center"> 
+        <!-- Botón para cerrar -->
+        <button id="close-mobile-menu" class="text-black p-4 self-end hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out rounded">
+            X
+        </button>
+        <!-- Opciones de navegación -->
+        <nav class="flex flex-col items-center text-lg flex-grow w-full"> <!-- flex-grow y space-y para espaciado uniforme -->
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out" href="#">Model S <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Model 3 <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Model X <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Model Y <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Powerwall <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Carga <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Soporte <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Tienda <span class="font-bold">></span></a>
+            <a class="w-full flex justify-between p-7 border-[1px] border-l-0 border-r-0 border-b-0 border-t-0 border-black hover:bg-gray-500 hover:text-white transition-colors duration-500 ease-in-out " href="#">Cuenta <span class="font-bold">></span></a>
+        </nav>
+    </div>
+</dialog>
+
+
+
+
+<script>
+    // Script del Menu de movil
+    const menuButton = document.getElementById('mobile-menu-button');
+    const menuDialog = document.getElementById('mobile-menu-dialog');
+    const closeMenuButton = document.getElementById('close-mobile-menu');
+
+    // Abrir menú móvil
+    menuButton.addEventListener("click", () => {
+    // Muestra el diálogo y aplica la animación fade-in
+    menuDialog.showModal()
+    menuDialog.classList.remove("opacity-0", "pointer-events-none");
+    menuDialog.classList.add("opacity-100", "pointer-events-auto");
+});
+
+    // Cerrar menú móvil
+    closeMenuButton.addEventListener("click", () => {
+    menuDialog.close(); // Cierra el modal
+    
+  });
+
+    // Cerrar menú al hacer clic fuera del contenido
+    menuDialog?.addEventListener('click', (event) => {
+        if (event.target === menuDialog) {
+            menuDialog.close();
+        }
+    });
+</script>
+
+<script>
+    //Script para la animacion de seguir al raton en el nav
+
+    const listItems = document.querySelectorAll('#landing-header a')
+    const menuBackDrop = document.querySelector('#menu-backdrop') as HTMLElement
+
+    if (listItems) {
+        listItems.forEach((item: Element) => {
+        item.addEventListener("mouseenter", () => {
+            const {left, top, width, height} = item.getBoundingClientRect()
+            menuBackDrop.style.setProperty("--left", `${left}px`)
+            menuBackDrop.style.setProperty("--top", `${top}px`)
+            menuBackDrop.style.setProperty("--width", `${width}px`)
+            menuBackDrop.style.setProperty("--height", `${height}px`)
+            menuBackDrop.style.opacity = '1'
+            menuBackDrop.style.visibility = 'visible'
+
+        })
+            item.addEventListener("mouseleave", () => {
+                menuBackDrop.style.opacity = '0'
+                menuBackDrop.style.visibility = 'hidden'    
+            })
+
+    })
+}
+</script>
+
+
+<script>
+    //Script para cambiar de color el texto del nav al hacer scroll. Un observable
+    const header= document.querySelector('#landing-header') as HTMLElement
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.90
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const {isIntersecting} = entry
+            if (isIntersecting) {
+                const color = entry.target.getAttribute('data-header-color')
+                if (color) {
+                    header.style.color = color;
+                }
+            }
+        })
+    }, observerOptions)
+
+    const sections: NodeListOf<HTMLElement> = document.querySelectorAll(".landing-section")
+    sections.forEach((section: HTMLElement) => observer.observe(section))
+</script>

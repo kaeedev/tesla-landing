@@ -1,11 +1,48 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from '../components/Navbar.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ModelYSection from '../components/ModelYSection.astro';
+import Model3Section from '../components/Model3Section.astro';
+import ModelSSection from '../components/ModelSSection.astro';
+import ModelXSection from '../components/ModelXSection.astro';
+import SolarPowerSection from '../components/SolarPowerSection.astro';
+import AccesoriosSection from '../components/AccesoriosSection.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<Navbar/>
+
+	<main class="snap-y snap-mandatory overflow-x-hidden relative w-full h-screen overflow-auto scroll">
+
+		<div class="snap-center">
+			<HeroSection/>
+		</div>
+		
+		<div class="snap-center">
+			<ModelYSection />
+		</div>
+
+		<div class="snap-center">
+			<Model3Section />
+		</div>
+
+		<div class="snap-center">
+			<ModelSSection />
+		</div>
+
+		<div class="snap-center">
+			<ModelXSection />
+		</div>
+
+		<div class="snap-center">
+			<SolarPowerSection />
+		</div>
+
+		<div class="snap-center">
+			<AccesoriosSection />
+		</div>
+		
+		
+	</main>
 </Layout>

@@ -16,7 +16,7 @@ El objetivo de este proyecto es aplicar todo lo aprendido en HTML, CSS, JS, Astr
 
 ## 🛠️ Estructura del Proyecto
 
-El proyecto está organizado por componentes. Cada component
+El proyecto está organizado por componentes. Cada componente es utilizado en el index.astro
 
 
 ## 🚀 Funcionalidades y uso

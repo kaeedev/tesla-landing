@@ -9,10 +9,9 @@ Clon de la landing page de Tesla
 El objetivo de este proyecto es aplicar todo lo aprendido en HTML, CSS, JS, Astro y Tailwind
 
 ## 👁️ Vista previa del proyecto
-
-<img src="/tesla/landing/assets/preview.jpeg" width=1200>
-<img src="/tesla/landing/assets/preview2.jpeg" width=1200>
-<img src="/tesla/landing/assets/previewmobile.jpeg" width=1200>
+![Miniatura del Proyecto](/tesla-landing/assets/preview.jpeg)
+![Miniatura del Proyecto](/tesla-landing/assets/preview2.jpeg)
+![Miniatura del Proyecto](/tesla-landing/assets/previewmobile.jpeg)
 
 
 ## 🛠️ Estructura del Proyecto
